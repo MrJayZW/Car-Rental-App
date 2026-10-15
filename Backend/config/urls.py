@@ -7,9 +7,11 @@ from rest_framework.routers import DefaultRouter
 from cars.views import CarViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from users.views import RegisterView
+from bookings.views import BookingViewSet
 
 router = DefaultRouter()
 router.register("cars", CarViewSet, basename="car")
+router.register("bookings", BookingViewSet, basename="booking")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
