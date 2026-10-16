@@ -1,12 +1,11 @@
 from rest_framework import viewsets
 from .models import Car
 from .serializers import CarSerializer
-from django.utilis.dateparse import parse_date
+from django.utils.dateparse import parse_date
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
 from bookings.models import Booking
-from .serializers import CarSerializer
 
 def read_date(text):
     try:
