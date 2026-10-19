@@ -2,8 +2,22 @@ import { API_URL } from "./config";
 import type { BookedRange } from "../types/booking";
 import type { Car } from "../types/car";
 
-export async function fetchCars(): Promise<Car[]> {
-    const response = await fetch(`${API_URL}/cars/`);
+export interface CarFilters {
+    search?: string;
+    transmission?: string;
+    fuel_type?: string;
+    ordering?: string;
+    start_date?: string;
+    end_date?: string;
+}
+
+export async function fetchCars(filters: CarFilters = {}): Promise<Car[]> {
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+        if (value) params.set(key, value);
+    });
+    const query = params.toString();
+    const response = await fetch(`${API_URL}/cars/${query ? `?${query}` : ""}`);
     if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
     }
