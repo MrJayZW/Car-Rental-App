@@ -1,33 +1,23 @@
-import { useEffect, useState } from "react";
-import { fetchCars } from "./api/cars";
-import type { Car } from "./types/car";
-import CarCard from "./components/CarCard";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import BookingsPage from "./pages/BookingsPage";
+import CarDetailsPage from "./pages/CarDetailsPage";
+import LoginPage from "./pages/LoginPage";
+import Homepage from "./pages/Homepage";
 
 function App() {
-  const [cars, setCars] = useState<Car[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchCars()
-      .then(setCars)
-      .catch((err: Error) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (loading) return <p>Loading cars...</p>;
-  if (error) return <p>Something went wrong: {error}</p>;
-
   return (
-    <main className="page">
-      <h1>Car Rental</h1>
-      <div className="car-grid">
-        {cars.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))
-        }
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main className="page">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/cars/:id" element={<CarDetailsPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/bookings" element={<BookingsPage />} />
+        </Routes>
+      </main>
+    </>
   );
 }
 

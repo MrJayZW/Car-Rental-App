@@ -70,3 +70,45 @@ body {
     font-weight: 400;
     color: #6b7280;
 }
+
+.navbar {
+    background: #111827;
+}
+
+.navbar__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.navbar a {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #fff;
+}
+
+.navbar a.navbar__brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.car-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
