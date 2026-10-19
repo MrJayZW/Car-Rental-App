@@ -250,3 +250,87 @@ body {
     margin: 0;
     color: #374151;
 }
+
+.booking-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.booking-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.booking-item__image {
+    width: 140px;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e5e7eb;
+}
+
+.booking-item__body {
+    flex: 1 1 200px;
+}
+
+.booking-item__body h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1.1rem;
+}
+
+.booking-item__body p {
+    margin: 0.15rem 0;
+    color: #4b5563;
+}
+
+.booking-item__side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.status {
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.status--pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status--approved {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status--rejected,
+.status--cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status--returned {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.button-secondary {
+    padding: 0.4rem 0.9rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+}

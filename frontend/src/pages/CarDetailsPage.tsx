@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { FormEvent } from "react";
+import type { SyntheticEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { createBooking } from "../api/bookings";
 import { fetchBookedDates, fetchCar } from "../api/cars";
@@ -39,7 +39,7 @@ export default function CarDetailsPage() {
             .finally(() => setLoading(false));
     }, [id]);
 
-    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    async function handleSubmit(event: SyntheticEvent<HTMLFormElement>) {
         event.preventDefault();
         if (!car || !token) return;
         setFormError(null);

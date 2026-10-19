@@ -39,5 +39,5 @@ class CarViewSet(viewsets.ReadOnlyModelViewSet):
         car = self.get_object()
         ranges = car.bookings.filter(
             status__in=["pending", "approved"]
-        ).values_list("start_date", "end_date")
+        ).values("start_date", "end_date")
         return Response(list(ranges))
