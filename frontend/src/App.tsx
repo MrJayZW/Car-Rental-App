@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import BookingsPage from "./pages/BookingsPage";
 import CarDetailsPage from "./pages/CarDetailsPage";
+import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import Homepage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
       <Navbar />
       <main className="page">
         <Routes>
-          <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/cars/:id" element={<CarDetailsPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/bookings" element={<BookingsPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/bookings" element={<BookingsPage />} />
         </Routes>
       </main>
     </>
