@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchCars } from "./api/cars";
 import type { Car } from "./types/car";
+import CarCard from "./components/CarCard";
 
 function App() {
   const [cars, setCars] = useState<Car[]>([]);
@@ -18,15 +19,14 @@ function App() {
   if (error) return <p>Something went wrong: {error}</p>;
 
   return (
-    <main>
+    <main className="page">
       <h1>Car Rental</h1>
-      <ul>
+      <div className="car-grid">
         {cars.map((car) => (
-          <li key={car.id}>
-            {car.brand} {car.model} ({car.year}), {car.price_per_day} per day
-          </li>
-        ))}
-      </ul>
+          <CarCard key={car.id} car={car} />
+        ))
+        }
+      </div>
     </main>
   );
 }
