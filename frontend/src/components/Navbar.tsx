@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../auth/AuthContext";
 
 export default function Navbar() {
+    const { token, logout } = useAuth();
+    const navigate = useNavigate();
+
+    function handleLogout() {
+        logout();
+        navigate("/");
+    }
+
     return (
         <header className="navbar">
             <div className="navbar__inner">
@@ -11,15 +20,21 @@ export default function Navbar() {
                     <NavLink to="/" end>
                         Cars
                     </NavLink>
-                    <NavLink to="/bookings">
-                        My bookings
-                    </NavLink>
-                    <NavLink to="/login">
-                        Log in
-                    </NavLink>
+                    {token ? (
+                        <>
+                            <NavLink to="/bookings">My bookings</NavLink>
+                            <button type="button" onClick={handleLogout}>
+                                Log out
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <NavLink to="/login">Log in</NavLink>
+                            <NavLink to="/register">Register</NavLink>
+                        </>
+                    )}
                 </nav>
             </div>
         </header>
-
     );
 }
