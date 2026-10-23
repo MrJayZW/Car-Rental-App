@@ -378,3 +378,88 @@ body {
     font-size: 1rem;
     cursor: pointer;
 }
+
+.hero {
+    padding: 4rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+    background:
+        linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
+        url("/hero.jpg") center / cover no-repeat;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+
+}
+
+.hero p {
+    max-width: 520px;
+    margin: 0 auto 1.5rem;
+    color: #dbeafe;
+    font-size: 1.1rem;
+}
+
+.hero__button {
+    display: inline-block;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    background: #ffffff rgba(0, 0, 0, 0.5);
+    color: #1d4ed8;
+    font-weight: 700;
+    text-decoration: none;
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.section-title {
+    margin: 0 0 1rem;
+}
+
+.showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+}
+
+.showcase__tile {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.showcase__tile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+}
+
+.showcase__tile:hover img {
+    transform: scale(1.06);
+}
+
+.showcase__caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+}
+
+.showcase__caption span {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.showcase__caption small {
+    opacity: 0.85;
+}

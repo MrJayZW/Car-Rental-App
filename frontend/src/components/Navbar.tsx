@@ -18,8 +18,9 @@ export default function Navbar() {
                 </NavLink>
                 <nav className="navbar__links">
                     <NavLink to="/" end>
-                        Cars
+                        Home
                     </NavLink>
+                    <NavLink to="/cars">Cars</NavLink>
                     {token ? (
                         <>
                             <NavLink to="/bookings">My bookings</NavLink>
